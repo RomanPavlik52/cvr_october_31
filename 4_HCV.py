@@ -10,17 +10,18 @@ import cv2
 
 cv2.namedWindow("mask")
 
-
+lh, ls, lv = (0, 84, 255)
+hh, hs, hv = (255, 255, 255)
 def nothing(x):
     pass
 
 
-cv2.createTrackbar("lh", "mask", 0, 255, nothing)
-cv2.createTrackbar("ls", "mask", 0, 255, nothing)
-cv2.createTrackbar("lv", "mask", 0, 255, nothing)
-cv2.createTrackbar("hh", "mask", 255, 255, nothing)
-cv2.createTrackbar("hs", "mask", 255, 255, nothing)
-cv2.createTrackbar("hv", "mask", 255, 255, nothing)
+cv2.createTrackbar("lh", "mask",lh,255, nothing)
+cv2.createTrackbar("ls", "mask",ls,255, nothing)
+cv2.createTrackbar("lv", "mask",lv,255, nothing)
+cv2.createTrackbar("hh", "mask",hh,255, nothing)
+cv2.createTrackbar("hs", "mask",hs,255, nothing)
+cv2.createTrackbar("hv", "mask",hv,4_HCV.py255, nothing)
 
 cam = cv2.VideoCapture(0)
 
@@ -42,6 +43,9 @@ while (True):
     hh = cv2.getTrackbarPos("hh", "mask")
     hs = cv2.getTrackbarPos("hs", "mask")
     hv = cv2.getTrackbarPos("hv", "mask")
+
+    print(lh , ls ,lv ,)
+    print(hh, hs, hv)
 
     mask = cv2.inRange(hsv, (lh, ls, lv), (hh, hs, hv))
 
