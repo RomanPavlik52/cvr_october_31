@@ -21,7 +21,7 @@ cv2.createTrackbar("ls", "mask",ls,255, nothing)
 cv2.createTrackbar("lv", "mask",lv,255, nothing)
 cv2.createTrackbar("hh", "mask",hh,255, nothing)
 cv2.createTrackbar("hs", "mask",hs,255, nothing)
-cv2.createTrackbar("hv", "mask",hv,4_HCV.py255, nothing)
+cv2.createTrackbar("hv", "mask",hv,255, nothing)
 
 cam = cv2.VideoCapture(0)
 
@@ -80,7 +80,7 @@ while (True):
 
             cv2.putText(frame, str(a), (l, t), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
             cv2.rectangle(frame, (l, t), (l + w, t + h), (0, 255, 0), 2)
-
+            cv2.circle(frame,(l+w//2,t+h//2),10,(255,255,0),15)
     # print("=====================")
     # break
 
